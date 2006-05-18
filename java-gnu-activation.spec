@@ -14,6 +14,8 @@ BuildRequires:	jdk
 Requires:	jre
 Provides:	jaf
 Provides:	java-activation
+BuildArch:	noarch
+ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -21,6 +23,17 @@ GNU JAF is a framework for declaring what beans operate on what MIME
 type data. Content handler beans can be defined to handle particular
 MIME content. The JAF unites internet standards for declaring content
 with JavaBeans(TM).
+
+%package doc
+Summary:	API documentation for GNU JAF
+Summary(pl):	Dokumentacja API GNU JAF
+Group:		Documentation
+
+%description doc
+API documentation for GNU JavaBeans(TM) Activation Framework.
+
+%description doc -l pl
+Dokumentacja API GNU JavaBeans(TM) Activation Framework.
 
 %prep
 %setup -q -n activation-%{version}
@@ -35,6 +48,7 @@ export JAVAC=%{_bindir}/javac
 %configure
 
 %{__make}
+%{__make} javadoc
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -49,3 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog source/javax/activation/*.html
 %{_javadir}/*.jar
+
+%files doc
+%defattr(644,root,root,755)
+%doc docs/*
