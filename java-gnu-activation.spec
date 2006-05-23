@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GNU JAF is a framework for declaring what beans operate on what MIME
 type data. Content handler beans can be defined to handle particular
-MIME content. The JAF unites internet standards for declaring content
+MIME content. The JAF unites Internet standards for declaring content
 with JavaBeans(TM).
 
 %description -l pl
