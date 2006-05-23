@@ -1,5 +1,5 @@
-#
 Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
+Summary(pl):	¦rodowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
 Version:	1.1.1
 Release:	1
@@ -23,6 +23,12 @@ GNU JAF is a framework for declaring what beans operate on what MIME
 type data. Content handler beans can be defined to handle particular
 MIME content. The JAF unites internet standards for declaring content
 with JavaBeans(TM).
+
+%description -l pl
+GNU JAF to szkielet s³u¿±cy do deklarowania, na jakim typie danych
+maj± operowaæ beans. Procedura obs³ugi beans mo¿e byæ zdefiniowana do
+operowania na konkretnej zawarto¶ci MIME. JAF jednoczy standardy
+internetowe do deklarowania zawarto¶ci przy u¿yciu JavaBeans(TM).
 
 %package doc
 Summary:	API documentation for GNU JAF
