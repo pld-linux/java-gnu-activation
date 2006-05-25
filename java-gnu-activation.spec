@@ -11,6 +11,8 @@ URL:		http://www.gnu.org/software/classpathx/jaf/jaf.html
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	jdk
+BuildRequires:	jpackage-utils
+BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
 Provides:	jaf
 Provides:	java-activation
@@ -30,15 +32,16 @@ maj± operowaæ beans. Procedura obs³ugi beans mo¿e byæ zdefiniowana do
 operowania na konkretnej zawarto¶ci MIME. JAF jednoczy standardy
 internetowe do deklarowania zawarto¶ci przy u¿yciu JavaBeans(TM).
 
-%package doc
+%package javadoc
 Summary:	API documentation for GNU JAF
 Summary(pl):	Dokumentacja API GNU JAF
 Group:		Documentation
+Obsoletes:	java-gnu-activation-doc
 
-%description doc
+%description javadoc
 API documentation for GNU JavaBeans(TM) Activation Framework.
 
-%description doc -l pl
+%description javadoc -l pl
 Dokumentacja API GNU JavaBeans(TM) Activation Framework.
 
 %prep
@@ -48,9 +51,8 @@ Dokumentacja API GNU JavaBeans(TM) Activation Framework.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-# Sun java requires . in CLASSPATH for configure test
-export CLASSPATH=.
-export JAVAC=%{_bindir}/javac
+unset CLASSPATH || :
+export JAVAC=%{javac}
 %configure
 
 %{__make}
@@ -59,8 +61,16 @@ export JAVAC=%{_bindir}/javac
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT{%{_javadir}/activation.jar,%{name}-%{version}.jar}
+ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/activation.jar
+ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf-1.1.jar
+ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf.jar
+cp -R docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,6 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog source/javax/activation/*.html
 %{_javadir}/*.jar
 
-%files doc
+%files javadoc
 %defattr(644,root,root,755)
-%doc docs/*
+%doc %{_javadocdir}/%{name}-%{version}
