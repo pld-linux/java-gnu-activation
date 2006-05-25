@@ -2,7 +2,7 @@ Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
 Summary(pl):	¦rodowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/classpathx/activation-%{version}.tar.gz
@@ -66,10 +66,11 @@ install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT{%{_javadir}/activation.jar,%{name}-%{version}.jar}
-ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/activation.jar
-ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf-1.1.jar
-ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf.jar
+mv $RPM_BUILD_ROOT%{_javadir}/{activation.jar,gnu-activation-%{version}.jar}
+ln -s gnu-activation-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/activation.jar
+ln -s gnu-activation-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf-1.1.jar
+ln -s gnu-activation-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf.jar
+
 cp -R docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 
 %clean
