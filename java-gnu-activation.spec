@@ -1,5 +1,5 @@
 Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
-Summary(pl.UTF-8):   Środowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
+Summary(pl.UTF-8):	Środowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
 Version:	1.1.1
 Release:	3
@@ -34,7 +34,7 @@ internetowe do deklarowania zawartości przy użyciu JavaBeans(TM).
 
 %package javadoc
 Summary:	API documentation for GNU JAF
-Summary(pl.UTF-8):   Dokumentacja API GNU JAF
+Summary(pl.UTF-8):	Dokumentacja API GNU JAF
 Group:		Documentation
 Requires:	jpackage-utils
 Obsoletes:	java-gnu-activation-doc
