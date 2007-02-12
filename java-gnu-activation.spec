@@ -1,5 +1,5 @@
 Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
-Summary(pl):	¦rodowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
+Summary(pl.UTF-8):   Åšrodowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
 Version:	1.1.1
 Release:	3
@@ -26,15 +26,15 @@ type data. Content handler beans can be defined to handle particular
 MIME content. The JAF unites Internet standards for declaring content
 with JavaBeans(TM).
 
-%description -l pl
-GNU JAF to szkielet s³u¿±cy do deklarowania, na jakim typie danych
-maj± operowaæ beans. Procedura obs³ugi beans mo¿e byæ zdefiniowana do
-operowania na konkretnej zawarto¶ci MIME. JAF jednoczy standardy
-internetowe do deklarowania zawarto¶ci przy u¿yciu JavaBeans(TM).
+%description -l pl.UTF-8
+GNU JAF to szkielet sÅ‚uÅ¼Ä…cy do deklarowania, na jakim typie danych
+majÄ… operowaÄ‡ beans. Procedura obsÅ‚ugi beans moÅ¼e byÄ‡ zdefiniowana do
+operowania na konkretnej zawartoÅ›ci MIME. JAF jednoczy standardy
+internetowe do deklarowania zawartoÅ›ci przy uÅ¼yciu JavaBeans(TM).
 
 %package javadoc
 Summary:	API documentation for GNU JAF
-Summary(pl):	Dokumentacja API GNU JAF
+Summary(pl.UTF-8):   Dokumentacja API GNU JAF
 Group:		Documentation
 Requires:	jpackage-utils
 Obsoletes:	java-gnu-activation-doc
@@ -42,7 +42,7 @@ Obsoletes:	java-gnu-activation-doc
 %description javadoc
 API documentation for GNU JavaBeans(TM) Activation Framework.
 
-%description javadoc -l pl
+%description javadoc -l pl.UTF-8
 Dokumentacja API GNU JavaBeans(TM) Activation Framework.
 
 %prep
