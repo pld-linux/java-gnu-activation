@@ -1,0 +1,31 @@
+--- source/javax/activation/MimeType.java.orig	2006-05-13 11:50:11.000000000 +0200
++++ source/javax/activation/MimeType.java	2007-12-03 11:41:30.000000000 +0100
+@@ -253,7 +253,7 @@
+     checkValidity(subType, "Sub type is invalid");
+   }
+ 
+-  static void checkValidity(String token, String message)
++  public static void checkValidity(String token, String message)
+     throws MimeTypeParseException
+   {
+     int len = token.length();
+@@ -271,7 +271,7 @@
+       }
+   }
+   
+-  static boolean isValidChar(char c)
++  public static boolean isValidChar(char c)
+   {
+     return c > ' ' && c <= '~' && TSPECIALS.indexOf(c) == -1;
+   }
+--- source/javax/activation/MimeTypeParseException.java.orig	2006-05-13 11:50:11.000000000 +0200
++++ source/javax/activation/MimeTypeParseException.java	2007-12-03 11:41:41.000000000 +0100
+@@ -58,7 +58,7 @@
+    * @param message the exception message
+    * @param token the token in error
+    */
+-  MimeTypeParseException(String message, String token)
++  public MimeTypeParseException(String message, String token)
+   {
+     this(new StringBuffer(message)
+          .append(':')
