@@ -1,10 +1,11 @@
+%include	/usr/lib/rpm/macros.java
 Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
 Summary(pl.UTF-8):	Środowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
 Version:	1.1.1
-Release:	4
+Release:	5
 License:	LGPL
-Group:		Libraries
+Group:		Development/Languages/Java
 Source0:	http://ftp.gnu.org/gnu/classpathx/activation-%{version}.tar.gz
 # Source0-md5:	de50d7728e8140eb404f2b4554321f8c
 Patch0:		%{name}-MimeType-symbols-fix.patch
@@ -13,12 +14,12 @@ BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
+BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	jre
-Provides:	jaf
+Requires:	jpackage-utils
+Provides:	jaf = %{version}
 Provides:	java-activation
 BuildArch:	noarch
-ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,10 +75,14 @@ ln -s gnu-activation-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/activation.jar
 ln -s gnu-activation-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf-1.1.jar
 ln -s gnu-activation-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jaf.jar
 
-cp -R docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+cp -a docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post javadoc
+ln -nfs %{name}-%{version} %{_javadocdir}/%{name}
 
 %files
 %defattr(644,root,root,755)
@@ -86,4 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files javadoc
 %defattr(644,root,root,755)
-%doc %{_javadocdir}/%{name}-%{version}
+%{_javadocdir}/%{name}-%{version}
+%ghost %{_javadocdir}/%{name}
