@@ -5,7 +5,7 @@ Name:		java-gnu-activation
 Version:	1.1.1
 Release:	5
 License:	LGPL
-Group:		Development/Languages/Java
+Group:		Libraries/Java
 Source0:	http://ftp.gnu.org/gnu/classpathx/activation-%{version}.tar.gz
 # Source0-md5:	de50d7728e8140eb404f2b4554321f8c
 Patch0:		%{name}-MimeType-symbols-fix.patch
