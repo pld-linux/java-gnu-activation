@@ -12,7 +12,7 @@ Patch0:		%{name}-MimeType-symbols-fix.patch
 URL:		http://www.gnu.org/software/classpathx/jaf/jaf.html
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	jdk
+BuildRequires:	java-gcj-compat-devel
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
