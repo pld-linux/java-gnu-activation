@@ -60,6 +60,8 @@ export JAVAC=%{javac}
 %configure
 
 %{__make}
+
+export SHELL=/bin/sh
 %{__make} javadoc
 
 %install
