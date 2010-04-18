@@ -3,7 +3,7 @@ Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
 Summary(pl.UTF-8):	Środowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
 Version:	1.1.1
-Release:	6
+Release:	7
 License:	LGPL
 Group:		Libraries/Java
 Source0:	http://ftp.gnu.org/gnu/classpathx/activation-%{version}.tar.gz
@@ -12,7 +12,7 @@ Patch0:		%{name}-MimeType-symbols-fix.patch
 URL:		http://www.gnu.org/software/classpathx/jaf/jaf.html
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	java-gcj-compat-devel
+BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
