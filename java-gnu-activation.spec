@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.java
 Summary:	GNU JavaBeans(TM) Activation Framework (JAF)
 Summary(pl.UTF-8):	Środowisko aktywacyjne JavaBeans(TM) (JAF) w wersji GNU
 Name:		java-gnu-activation
